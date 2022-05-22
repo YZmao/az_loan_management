@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myz.azloanmanage.mapper.LoanInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.myz.azloanmanage.entity.LoanInfo">
+        <id column="id" property="id" />
+        <result column="customer_id" property="customerId" />
+        <result column="sys_user_id" property="sysUserId" />
+        <result column="loan_products_id" property="loanProductsId" />
+        <result column="principal" property="principal" />
+        <result column="balance" property="balance" />
+        <result column="guarantee_mode" property="guaranteeMode" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, customer_id, sys_user_id, loan_products_id, principal, balance, guarantee_mode, create_time, update_time, remarks
+    </sql>
+
+</mapper>

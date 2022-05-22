@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myz.azloanmanage.mapper.WeekTasksMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.myz.azloanmanage.entity.WeekTasks">
+        <id column="id" property="id" />
+        <result column="sys_user_id" property="sysUserId" />
+        <result column="week_task" property="weekTask" />
+        <result column="week_completed" property="weekCompleted" />
+        <result column="change_time" property="changeTime" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, sys_user_id, week_task, week_completed, change_time, remarks
+    </sql>
+
+</mapper>
