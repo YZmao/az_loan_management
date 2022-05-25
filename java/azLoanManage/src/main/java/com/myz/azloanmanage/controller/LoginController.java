@@ -23,6 +23,7 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/user")
 @Api("用户登录接口")
+@CrossOrigin
 public class LoginController {
 
 
@@ -43,6 +44,7 @@ public class LoginController {
     @ApiOperation(value = "登录接口")
     public Result loginVue(@RequestBody LoginVo loginVo) {
         Result result = loginService.loginVue(loginVo);
+        System.out.println(result.getData());
         return result;
     }
 
