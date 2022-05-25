@@ -21,23 +21,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/login")
 @Api("用户登录接口")
 @CrossOrigin
 public class LoginController {
 
 
-    @Autowired
-    private SysUserService sysUserService;
+
 
     @Autowired
     private LoginService loginService;
 
-    @GetMapping ("/getone")
-    @ApiOperation(value = "获取一个用户信息")
-    public Result getone() {
-        return Result.success("",sysUserService.selectByPrimaryKey(1L));
-    }
+
 
 
     @PostMapping("/loginVue")
@@ -63,17 +58,6 @@ public class LoginController {
     }
 
 
-    @ApiOperation(value = "获取当前登录用户的信息")
-    @GetMapping("/getLoginInfo")
-    public Result getLoginInfo(Principal principal) {
-        if (null == principal) {
-            return ResultConstant.USER_NOT_LOGGED_IN;
-        }
-        String username = principal.getName();
-        SysUser user = sysUserService.selectByUsername(username);
-        user.setPassword(null);
-        return new Result(ResultConstant.USER_SELECT_SUCCESS, user);
-    }
 
 
 }

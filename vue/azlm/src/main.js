@@ -11,7 +11,13 @@ import './plugins/axios.js';
 //引入elementui
 import "@/utils/elementui";
 
+//引入elementui
+import "@/assets/css/global.css";
+
+//基础路由
 axios.defaults.baseURL = 'http://localhost:8080/';
+
+
 
 Vue.config.productionTip = false
 
