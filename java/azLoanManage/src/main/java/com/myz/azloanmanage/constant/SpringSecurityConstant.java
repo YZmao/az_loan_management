@@ -12,6 +12,8 @@ public class SpringSecurityConstant {
             "/favicon.ico",
 
             //swagger相关的
+            "favicon.ico",
+            "/swagger-ui.html",
             "/doc.html",
             "/webjars/**",
             "/swagger-resources/**",
@@ -21,11 +23,8 @@ public class SpringSecurityConstant {
             "/configuration/security",
 
             //后端的
-            "/user/**",
-            "/user/login",
-            "/user/logout",
-            "/oauth/**",
-            "/user/get",
+            "/user/loginVue",
+
 
             //微信小程序资源
             "/user/wxlogin",
