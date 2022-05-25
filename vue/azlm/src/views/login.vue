@@ -27,7 +27,7 @@
 import store from '@/store';
 
 export default {
-    name: '',
+    name: 'Login',
     data() {
         return {
             //表单数据
@@ -66,38 +66,6 @@ export default {
                     return this.$message.error('数据校验未通过，请仔细填写信息！');
                 }
                 //数据校验成功，就向后端发送校验请求
-
-                //发送ajax请求，向后台访问数据  ?username=' + this.loginForm.username + '&password=' + this.loginForm.password
-                this.$ajax.post('user/loginVue', this.loginForm).then((res) => {
-                    console.log(res);
-                        console.log("访问后端接口");
-                        const tokenBody = res.data.data;
-                        let tokenHead = tokenBody.tokenHead;
-                        let token = tokenBody.token;
-                        console.log("token",tokenHead + token);
-                        this.$store.commit('setToken', tokenHead + token);
-                        this.$router.push("/home");
-                        // console.log(resp.data);
-                        // console.log(resp);
-                        // console.log('获取用户信息', res.data.data);
-
-                  
-                    // this.$ajax.get('/user/getLoginInfo').then((res) => {
-                    //     console.log('获取用户信息', res.data.data);
-                    //     let user = res.data.data;
-                    //     //将用户信息存入本地
-                    //     this.$store.commit('setUserName', user.nickName);
-                    //     //this.$store.commit('setAvatar', user.avatarUrl);
-                    //     //获取权限信息
-                    //     // this.$store.commit('setRoles', user.authorities);
-                    //     // this.$store.commit('setPremission', user.premission);
-                    // });
-
-                }).catch(resp => {
-                    console.log('请求失败：'+resp.status+','+resp.statusText);
-                });
-                
-                
             });
         }
     }

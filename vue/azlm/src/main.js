@@ -3,15 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import "@/utils/ajax"
-//引入axios
-import axios from 'axios';
-import './plugins/axios.js';
-
 
 //引入elementui
-import "@/utils/elementui";
-
-axios.defaults.baseURL = 'http://localhost:8080/';
+import "@/utils/elementui"
 
 Vue.config.productionTip = false
 
