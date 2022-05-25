@@ -1,75 +1,64 @@
 package com.myz.azloanmanage.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-/**
- * <p>
- * 系统用户
- * </p>
- *
- * @author myz.azloanmanage
- * @since 2022-05-22
- */
+import java.util.Collection;
+import java.util.Date;
+
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-public class SysUser implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
+public class SysUser implements UserDetails {
     private Long id;
 
-    /**
-     * 用户名
-     */
     private String userName;
 
-    /**
-     * 密码
-     */
     private String password;
 
-    /**
-     * 昵称
-     */
     private String nickName;
 
-    /**
-     * 权限
-     */
-    private Integer rights;
+    private Byte rights;
 
-    /**
-     * 状态
-     */
-    private Integer status;
+    private Byte status;
 
-    /**
-     * 微信小程序openid
-     */
     private String openId;
 
-    /**
-     * 创建时间
-     */
-    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
-    /**
-     * 更改时间
-     */
-    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return userName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        if (status==0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

@@ -1,16 +1,19 @@
 package com.myz.azloanmanage.mapper;
 
 import com.myz.azloanmanage.entity.SysUser;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-/**
- * <p>
- * 系统用户 Mapper 接口
- * </p>
- *
- * @author myz.azloanmanage
- * @since 2022-05-22
- */
-public interface SysUserMapper extends BaseMapper<SysUser> {
+public interface SysUserMapper {
+    int deleteByPrimaryKey(Long id);
 
+    int insert(SysUser record);
+
+    int insertSelective(SysUser record);
+
+    SysUser selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(SysUser record);
+
+    int updateByPrimaryKey(SysUser record);
+
+    SysUser selectByUsername(String username);
 }
