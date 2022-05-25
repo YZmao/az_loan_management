@@ -38,6 +38,12 @@ public class Result implements Serializable {
         this.message = message;
     }
 
+    public Result(Result result, Object data) {
+        this.code = result.getCode();
+        this.message = result.getMessage();
+        this.data = data;
+    }
+
     public Result(int code, String message, Object data) {
         this.code = code;
         this.message = message;

@@ -20,4 +20,9 @@ public class SysUserServiceImpl implements SysUserService {
 
         return sysUserMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public SysUser selectByUsername(String username) {
+        return sysUserMapper.selectByUsername(username);
+    }
 }
