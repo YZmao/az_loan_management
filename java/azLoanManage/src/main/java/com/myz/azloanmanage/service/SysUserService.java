@@ -1,7 +1,6 @@
 package com.myz.azloanmanage.service;
 
 import com.myz.azloanmanage.entity.SysUser;
-import com.myz.azloanmanage.vo.UserMenuVo;
 
 public interface SysUserService {
 
@@ -20,11 +19,4 @@ public interface SysUserService {
      * @return
      */
     SysUser selectByUsername(String username);
-
-    /**
-     * 根据用户id获取用户菜单列表
-     * @param id
-     * @return
-     */
-    UserMenuVo  selectUserMenulistByUsername(Long id);
 }

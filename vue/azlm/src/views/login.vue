@@ -68,7 +68,7 @@ export default {
                 //数据校验成功，就向后端发送校验请求
 
                 //发送ajax请求，向后台访问数据  ?username=' + this.loginForm.username + '&password=' + this.loginForm.password
-                this.$ajax.post('login/loginVue', this.loginForm).then((res) => {
+                this.$ajax.post('user/loginVue', this.loginForm).then((res) => {
                     console.log(res);
                         console.log("访问后端接口");
                         const tokenBody = res.data.data;
